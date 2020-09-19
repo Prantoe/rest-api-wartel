@@ -70,12 +70,12 @@
       </li>
 
       <li class="">
-        <a href="<?php echo base_url("dashboard/customers") ?>"">
-            <i class=" fa fa-phone"></i> <span>Data Call</span>
+        <a href="<?php echo base_url("Call") ?>">
+          <i class=" fa fa-phone"></i> <span>Data Call</span>
         </a>
       </li>
       <li class="">
-        <a href="<?php echo base_url("dashboard/komik") ?>">
+        <a href="<?php echo base_url("Users") ?>">
           <i class="fa fa-users"></i> <span>Data Users</span>
         </a>
       </li>

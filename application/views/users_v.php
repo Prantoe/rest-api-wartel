@@ -33,7 +33,7 @@
                                     <i class="fa fa-list-alt"></i>
                                     Data Users</h3>
                                 <div class="pull-right">
-                                    <button class="btn btn-primary" data-toggle="modal" data-target="#addKomik">
+                                    <button class="btn btn-primary" data-toggle="modal" data-target="#addUsers">
                                         <i class="fa fa-plus"></i>
                                     </button>
                                 </div>
@@ -65,10 +65,11 @@
                                                 <td><?= $users[$i]['full_name'] ?></td>
                                                 <td><?= $users[$i]['last_login'] ?></td>
                                                 <td align="center">
+
                                                     <a href="#" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#modal-default<?= $users[$i]['user_id'] ?>">
                                                         <i class="fa fa-pencil"></i>
                                                     </a>
-                                                    <a href="<?= base_url("dashboard/deleteKomik/") . $users[$i]['user_id'] ?>" class="btn btn-danger btn-xs">
+                                                    <a href="<?= base_url("users/deleteUsers/") . $users[$i]['user_id'] ?>" class="btn btn-danger btn-xs">
                                                         <i class="fa fa-trash"></i>
                                                     </a>
                                                 </td>
@@ -86,7 +87,7 @@
                                                         <span aria-hidden="true">×</span></button>
                                                     <h4 class="modal-title">Edit Data User</h4>
                                                 </div>
-                                                <form action="<?php echo base_url("dashboard/editKomik") ?>" method="post" enctype="multipart/form-data">
+                                                <form action="<?php echo base_url("users/updateUsers") ?>" method="post" enctype="multipart/form-data">
                                                     <div class="modal-body">
                                                         <div class="form-group">
                                                             <label>Username :</label>
@@ -112,42 +113,45 @@
                                 <?php } ?>
                                 <!-- /Modal Edit Customers -->
 
-                                <!-- Tambah Komik -->
-                                <div class="modal fade" id="addKomik" style="display: none;">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                    <span aria-hidden="true">×</span></button>
-                                                <h4 class="modal-title">Tambah user</h4>
-                                            </div>
-                                            <form action="<?php echo base_url("dashboard/tambahKomik") ?>" method="post" enctype="multipart/form-data">
-                                                <div class="modal-body">
-                                                    <div class="form-group">
-                                                        <label>username :</label>
-                                                        <input type="text" class="form-control" name="username">
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label>password :</label>
-                                                        <input type="text" class="form-control" name="password">
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label>full name :</label>
-                                                        <input type="text" class="form-control" name="full_name">
-                                                    </div>
+                                <!-- Tambah user -->
+                                <?php foreach ($users as $row) { ?>
+                                    <div class="modal fade" id="addUsers" style="display: none;">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">×</span></button>
+                                                    <h4 class="modal-title">Tambah user</h4>
+                                                </div>
+                                                <form action="<?php echo base_url("users/createUsers/") ?>" method="post" enctype="multipart/form-data">
+                                                    <div class="modal-body">
+                                                        <div class="form-group">
+                                                            <label>username :</label>
+                                                            <input type="text" class="form-control" name="username">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label>password :</label>
+                                                            <input type="text" class="form-control" name="password">
 
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
-                                                    <button type="submit" class="btn btn-primary">Save changes</button>
-                                                </div>
-                                            </form>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label>full name :</label>
+                                                            <input type="text" class="form-control" name="full_name">
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+                                                        <button type="submit" class="btn btn-primary">Save changes</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                            <!-- /.modal-content -->
                                         </div>
-                                        <!-- /.modal-content -->
+                                        <!-- /.modal-dialog -->
                                     </div>
-                                    <!-- /.modal-dialog -->
-                                </div>
-                                <!-- /Tambah Komik -->
+                                <?php } ?>
+                                <!-- /Tambah user -->
                             </div>
                         </div>
                     </div>

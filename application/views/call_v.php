@@ -68,10 +68,8 @@
                                                 <td><?= $row['created_at'] ?></td>
                                                 <td><?= $row['updated_at'] ?></td>
                                                 <td align="center">
-                                                    <!-- <a href="#" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#modal-default<?= $row['id'] ?>">
-                                                        <i class="fa fa-pencil"></i>
-                                                    </a> -->
-                                                    <a href="<?= base_url("dashboard/deleteCustomer/") . $row['id'] ?>" class="btn btn-danger btn-xs">
+
+                                                    <a href="<?= base_url("call/deleteCall") . $row['id'] ?>" class="btn btn-danger btn-xs">
                                                         <i class="fa fa-trash"></i>
                                                     </a>
                                                 </td>
